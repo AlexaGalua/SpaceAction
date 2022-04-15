@@ -61,9 +61,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sceneSetUp()
         playerSetUp()
         scoreLabelSetUp()
-
         gameTimerSetUp()
-        setupAccelerometer()
+
 
     }
     func gameTimerSetUp() {
@@ -111,16 +110,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.zPosition = 10
         scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         self.addChild(scoreLabel)
-    }
-    func setupAccelerometer() {
-        if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 0.01
-            motionManager.startAccelerometerUpdates(to: .main) { [weak self] (data: CMAccelerometerData?, error: Error?) in
-                if let acceleration = data?.acceleration {
-                    self?.accelerationX = CGFloat(acceleration.x)
-                }
-            }
-        }
     }
     override func didSimulatePhysics() {
          player.physicsBody?.velocity = CGVector(dx: accelerationX * 600, dy: 0)
