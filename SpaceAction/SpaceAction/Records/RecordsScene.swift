@@ -64,7 +64,7 @@ class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 10
+        return 30
     }
 }
 
@@ -113,7 +113,7 @@ class RecordsScene: SKScene {
         backToMainMenuLabel.zPosition = 1
         addChild(backToMainMenuLabel)
     }
-    
+
     func tableSetUp() {
         self.gameTableView.backgroundColor = .clear
         self.gameTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
