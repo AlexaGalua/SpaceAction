@@ -16,7 +16,7 @@ class SettingsScene: SKScene {
     let blueSpaceship = SKSpriteNode(imageNamed: "blueSpaceship")
     let greenSpaceship = SKSpriteNode(imageNamed: "greenSpaceship")
     
-   private var settings = Settings(playerName: nil, spaceshipName: nil, timer: nil)
+   private var settings = Settings(spaceshipName: nil, timer: nil)
  
     override func didMove(to view: SKView) {
         settings = SettingsManager.shared.loadSettings()
@@ -30,15 +30,13 @@ class SettingsScene: SKScene {
                 blueSpaceship.run(scaleShipBlueSequance)
                 let scaleDownGreenShipTo1 = SKAction.scale(to: 1, duration: 0.2)
                 greenSpaceship.run(scaleDownGreenShipTo1)
-            case "greenSpaceship":
+            default:
                 let scaleUpGreenShip = SKAction.scale(to: 2, duration: 0.2)
                 let scaleDownGreenShip = SKAction.scale(to: 1.5, duration: 0.2)
                 let scaleShipGreenSequance = SKAction.sequence([scaleUpGreenShip, scaleDownGreenShip])
                 greenSpaceship.run(scaleShipGreenSequance)
                 let scaleDownBlueShipTo1 = SKAction.scale(to: 1, duration: 0.2)
                 blueSpaceship.run(scaleDownBlueShipTo1)
-            default:
-                break
             }
         }
         
@@ -57,7 +55,7 @@ class SettingsScene: SKScene {
     func settingsLabelSetUp() {
         settingsLabel.text = "Settings"
         settingsLabel.fontColor = SKColor.white
-        settingsLabel.fontSize = 40
+        settingsLabel.fontSize = 30
         settingsLabel.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.85)
         settingsLabel.zPosition = 1
         addChild(settingsLabel)

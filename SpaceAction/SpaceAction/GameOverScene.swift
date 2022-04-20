@@ -38,7 +38,7 @@ class GameOverScene: SKScene {
     func gameOverLabelSetUp() {
         gameOverLabel.text = "Game Over"
         gameOverLabel.fontColor = SKColor.white
-        gameOverLabel.fontSize = 50
+        gameOverLabel.fontSize = 40
         gameOverLabel.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.7)
         gameOverLabel.zPosition = 1
         addChild(gameOverLabel)
@@ -65,7 +65,7 @@ class GameOverScene: SKScene {
     func backToMainMenuLabelSetUp() {
         backToMainMenuLabel.text = "Back To Menu"
         backToMainMenuLabel.fontColor = SKColor.white
-        backToMainMenuLabel.fontSize = 20
+        backToMainMenuLabel.fontSize = 30
         backToMainMenuLabel.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.1)
         backToMainMenuLabel.zPosition = 1
         addChild(backToMainMenuLabel)

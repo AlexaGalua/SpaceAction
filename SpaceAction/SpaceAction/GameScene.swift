@@ -43,28 +43,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        static let EdgeBody: UInt32 = 0b101 //6
         static let EdgeBody: UInt32 = 0b10000 //16
     }
-    private var settings = Settings(playerName: nil, spaceshipName: nil, timer: nil)
+    private var settings = Settings(spaceshipName: nil, timer: nil)
     
     override func didMove(to view: SKView) {
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-        print("Family: \(family) Font names: \(names)")
-        }
-        
         settings = SettingsManager.shared.loadSettings()
         score = 0
-
-        self.physicsWorld.contactDelegate = self
         
+        self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
     
         sceneSetUp()
         playerSetUp()
         scoreLabelSetUp()
         gameTimerSetUp()
-
-
     }
+    
     func gameTimerSetUp() {
         if let gTimer = settings.timer {
             gameTimer = Timer.scheduledTimer(timeInterval: gTimer, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
@@ -72,6 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
         }
     }
+    
     func sceneSetUp() {
         scene?.size = UIScreen.main.bounds.size
         stars = SKEmitterNode(fileNamed: "Stars")
@@ -80,13 +74,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         stars.zPosition = -1
         addChild(stars)
     }
+    
     func playerSetUp() {
         if let playerSpaceship = settings.spaceshipName {
             player = SKSpriteNode(imageNamed: playerSpaceship)
         } else {
-            player = SKSpriteNode(imageNamed: "blueSpaceship")
+            player = SKSpriteNode(imageNamed: "greenSpaceship")
         }
-        
         player.position.x = frame.midX
         player.position.y = frame.minY + player.size.height * 2
         player.zPosition = 1
@@ -104,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func scoreLabelSetUp() {
         scoreLabel.text = "Score: 0"
         scoreLabel.fontName = "Verdana-Bold"
-        scoreLabel.fontSize = 30
+        scoreLabel.fontSize = 20
         scoreLabel.fontColor = UIColor.white
         scoreLabel.position = CGPoint(x: self.frame.minX + 20, y: self.frame.maxY - 70)
         scoreLabel.zPosition = 10
@@ -257,16 +251,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let date = Date()
         let formatter = DateFormatter()
 
-        formatter.dateFormat = "dd/MM  h:mm a"
+        formatter.dateFormat = "dd.MM h:mm a"
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
         formatter.timeZone = .current
         let dateString = formatter.string(from: date)
-//        print(dateString)
         let newRecord = Record(score: score, date: dateString)
         RecordsManager.shared.saveRecords(newRecord)
         print("\(score) was saved to UD")
-//        print(records)
     }
     func runGameOver() {
         currentGameState = .afterTheGame

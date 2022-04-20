@@ -37,7 +37,7 @@ class MainMenuScene: SKScene {
     func gameNameLabelSetUp() {
         gameNameLabel.text = "Space Mission"
         gameNameLabel.fontColor = SKColor.white
-        gameNameLabel.fontSize = 50
+        gameNameLabel.fontSize = 40
         gameNameLabel.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.7)
         gameNameLabel.zPosition = 1
         addChild(gameNameLabel)

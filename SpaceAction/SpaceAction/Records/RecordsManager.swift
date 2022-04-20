@@ -17,7 +17,6 @@ class RecordsManager {
     static let shared = RecordsManager()
     
     func saveRecords(_ records: Record) {
-        
         var array = self.loadRecords()
         array.append(records)
         UserDefaults.standard.set(encodable: array, forKey: RecordsKeys.recordsKey.rawValue)
