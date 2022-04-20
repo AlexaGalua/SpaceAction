@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APX-8K-bOY">
-                        <rect key="frame" x="40" y="12" width="200" height="20.5"/>
+                        <rect key="frame" x="20" y="12" width="200" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="GQt-we-5MR"/>
                             <constraint firstAttribute="width" constant="200" id="Hyf-fw-HKc"/>
@@ -27,16 +27,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScoreLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jL-Pv-DZc">
-                        <rect key="frame" x="270" y="11.5" width="35" height="21"/>
+                        <rect key="frame" x="240" y="11.5" width="65" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="3jL-Pv-DZc" firstAttribute="leading" secondItem="APX-8K-bOY" secondAttribute="trailing" constant="30" id="5XL-pE-cIw"/>
+                    <constraint firstItem="3jL-Pv-DZc" firstAttribute="leading" secondItem="APX-8K-bOY" secondAttribute="trailing" constant="20" id="5XL-pE-cIw"/>
                     <constraint firstItem="APX-8K-bOY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FI9-uw-wnR"/>
-                    <constraint firstItem="APX-8K-bOY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="ZV4-oT-5Kf"/>
+                    <constraint firstItem="APX-8K-bOY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ZV4-oT-5Kf"/>
                     <constraint firstItem="3jL-Pv-DZc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fIM-PT-e4m"/>
                     <constraint firstAttribute="trailing" secondItem="3jL-Pv-DZc" secondAttribute="trailing" constant="15" id="zRo-xf-Rz7"/>
                 </constraints>

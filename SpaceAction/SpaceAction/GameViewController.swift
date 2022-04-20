@@ -18,12 +18,9 @@ class GameViewController: UIViewController {
         if let view = self.view as! SKView? {
            
             if let scene = SKScene(fileNamed: "MainMenuScene") {
-                
                 scene.size = self.view.bounds.size
-
                 view.presentScene(scene)
             }
-            
             view.ignoresSiblingOrder = true
             view.showsFPS = true
             view.showsNodeCount = true

@@ -14,6 +14,8 @@ class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource
     
     var records = RecordsManager.shared.loadRecords()
     
+    
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         self.delegate = self
@@ -45,12 +47,12 @@ class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource
         }
 
         cell.dateLabel.textColor = .white
-        cell.dateLabel.font = UIFont(name: "Verdana-Bold", size: 20)
-        cell.dateLabel.textAlignment = .center
+        cell.dateLabel.font = UIFont(name: "Verdana-Bold", size: 15)
+        cell.dateLabel.textAlignment = .left
 
         cell.scoreLabel.textColor = .white
-        cell.scoreLabel.font = UIFont(name: "Verdana-Bold", size: 20)
-        cell.scoreLabel.textAlignment = .center
+        cell.scoreLabel.font = UIFont(name: "Verdana-Bold", size: 15)
+        cell.scoreLabel.textAlignment = .left
 
         cell.backgroundColor = .clear
         
@@ -62,7 +64,7 @@ class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 10
     }
 }
 
@@ -97,7 +99,7 @@ class RecordsScene: SKScene {
     func recordsLabelSetUp() {
         recordsLabel.text = "Records"
         recordsLabel.fontColor = SKColor.white
-        recordsLabel.fontSize = 40
+        recordsLabel.fontSize = 30
         recordsLabel.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.8)
         recordsLabel.zPosition = 1
         addChild(recordsLabel)
@@ -131,12 +133,12 @@ class RecordsScene: SKScene {
         let dateLabel = UILabel(frame: CGRect(x: 10 + scoreLabel.frame.width, y: 0, width: self.gameTableViewSize.width / 2, height: headerVIew.frame.size.height/5))
         
         scoreLabel.text = "Score"
-        scoreLabel.font = UIFont(name: "Verdana-Bold", size: 30)
+        scoreLabel.font = UIFont(name: "Verdana-Bold", size: 25)
         scoreLabel.textColor = .white
         scoreLabel.textAlignment = .center
         
         dateLabel.text = "Date"
-        dateLabel.font = UIFont(name: "Verdana-Bold", size: 30)
+        dateLabel.font = UIFont(name: "Verdana-Bold", size: 25)
         dateLabel.textColor = .white
         dateLabel.textAlignment = .center
         
