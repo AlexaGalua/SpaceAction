@@ -8,8 +8,6 @@
 import Foundation
 import SpriteKit
 
-
-
 class MainMenuScene: SKScene {
 
     var stars: SKEmitterNode!

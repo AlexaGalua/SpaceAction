@@ -18,13 +18,13 @@ class GameOverScene: SKScene {
     let recordsLabel = SKLabelNode(fontNamed: "Verdana-Bold")
     let backToMainMenuLabel = SKLabelNode(fontNamed: "Verdana-Bold")
     var records: [Record] = []
+    
     override func didMove(to view: SKView) {
         backgroundSetUp()
         gameOverLabelSetUp()
         recordsLabelSetUp()
         restartLabelSetUp()
         backToMainMenuLabelSetUp()
-     
     }
     
     func backgroundSetUp() {
@@ -74,9 +74,7 @@ class GameOverScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: UITouch in touches {
-            
             let pointOfTouch = touch.location(in: self)
-            
             if restartLabel.contains(pointOfTouch) {
                 let gameScene = GameScene(size: UIScreen.main.bounds.size)
                 let sceneTransition = SKTransition.fade(withDuration: 1)

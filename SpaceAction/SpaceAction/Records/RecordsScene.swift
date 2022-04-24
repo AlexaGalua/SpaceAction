@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 import UIKit
 
-
 class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var records = RecordsManager.shared.loadRecords()
@@ -77,11 +76,11 @@ class RecordsScene: SKScene {
    
     override func didMove(to view: SKView) {
         
-        self.backgroundSetUp()
-        self.recordsLabelSetUp()
-        self.backToMainMenuLabelSetUp()
-        self.tableSetUp()
-        self.registerNibs()
+        backgroundSetUp()
+        recordsLabelSetUp()
+        backToMainMenuLabelSetUp()
+        tableSetUp()
+        registerNibs()
 
         records = RecordsManager.shared.loadRecords()
     }

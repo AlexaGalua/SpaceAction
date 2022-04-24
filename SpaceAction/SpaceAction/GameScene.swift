@@ -14,7 +14,7 @@ var score = Int()
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var stars: SKEmitterNode!
-    var gameTimer, newLifeTimer: Timer!
+    var gameTimer: Timer!
     var enemies = ["alienspaceship", "alien80", "predator80", "ufo96"]
     let enemySize = CGSize(width: 70, height: 70)
     var player = SKSpriteNode()
@@ -105,9 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         self.addChild(scoreLabel)
     }
-    override func didSimulatePhysics() {
-         player.physicsBody?.velocity = CGVector(dx: accelerationX * 600, dy: 0)
-    }
+
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first! as UITouch
         let pointOfTouch = touch.location(in: self)
@@ -124,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.position.x = self.frame.minX + player.size.width / 2
         }
     }
+    
     @objc func createEnemy() {
         enemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemies) as! [String]
         let enemy = SKSpriteNode(imageNamed: enemies[0])
@@ -153,6 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.run(SKAction.sequence(actionArray), withKey: "runCreateEnemy")
         }
     }
+    
     func shootMissile() {
         let missile = SKSpriteNode(imageNamed: "missile")
         missile.name = "Missile"
@@ -171,11 +171,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let shotSequance = SKAction.sequence([shot, deleteMissile])
         missile.run(shotSequance, withKey: "runShootMissile")
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if currentGameState == .duringTheGame {
             shootMissile()
         }
     }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         var body1 = SKPhysicsBody()
         var body2 = SKPhysicsBody()
@@ -209,18 +211,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             body1.node?.removeFromParent()
             body2.node?.removeFromParent()
         }
-        if body1.categoryBitMask == PhysicsCategory.Player && body2.categoryBitMask == PhysicsCategory.NewFuel {
-
-            if body2.node != nil {
-                if body2.node!.position.y > self.size.height {
-                    return
-                } else {
-                    createSparkles(sparklesPosition: body2.node!.position)
-                }
-            }
-            body2.node?.removeFromParent()
-        }
     }
+    
     func createExplosion(explosionPosition: CGPoint) {
         let explosion = SKSpriteNode(imageNamed: "bigBang")
         explosion.position = explosionPosition
@@ -232,21 +224,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let explosionSequance = SKAction.sequence([scaleIn, fadeOut, deleteExplosion])
         explosion.run(explosionSequance)
     }
+    
     func increaseScore() {
         score += 1
         scoreLabel.text = "Score: \(score)"
     }
-    func createSparkles(sparklesPosition: CGPoint) {
-        let sparkles = SKSpriteNode(imageNamed: "sparkles")
-        sparkles.position = sparklesPosition
-        sparkles.zPosition = 3
-        self.addChild(sparkles)
-        let scaleIn = SKAction.scale(to: 2.5, duration: 0.1)
-        let fadeOut = SKAction.fadeOut(withDuration: 0.1)
-        let deleteSparkles = SKAction.removeFromParent()
-        let sparklesSequance = SKAction.sequence([scaleIn, fadeOut, deleteSparkles])
-        sparkles.run(sparklesSequance)
-    }
+    
     func saveGameResults() {
         let date = Date()
         let formatter = DateFormatter()
@@ -260,6 +243,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         RecordsManager.shared.saveRecords(newRecord)
         print("\(score) was saved to UD")
     }
+    
     func runGameOver() {
         currentGameState = .afterTheGame
         self.enumerateChildNodes(withName: "Missile") {
@@ -276,6 +260,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let changeGameSceneToGameOverSceneSequance = SKAction.sequence([saveGameResultsAction, waitBeforeChangeScenes, changeGameSceneToGameOverSceneAction])
         self.run(changeGameSceneToGameOverSceneSequance)
     }
+    
     func changeGameSceneToGameOverScene() {
         let gameOverScene = GameOverScene(size: self.size)
         gameOverScene.scaleMode = self.scaleMode

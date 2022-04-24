@@ -30,13 +30,15 @@ class SettingsScene: SKScene {
                 blueSpaceship.run(scaleShipBlueSequance)
                 let scaleDownGreenShipTo1 = SKAction.scale(to: 1, duration: 0.2)
                 greenSpaceship.run(scaleDownGreenShipTo1)
-            default:
+            case "greenSpaceship":
                 let scaleUpGreenShip = SKAction.scale(to: 2, duration: 0.2)
                 let scaleDownGreenShip = SKAction.scale(to: 1.5, duration: 0.2)
                 let scaleShipGreenSequance = SKAction.sequence([scaleUpGreenShip, scaleDownGreenShip])
                 greenSpaceship.run(scaleShipGreenSequance)
                 let scaleDownBlueShipTo1 = SKAction.scale(to: 1, duration: 0.2)
                 blueSpaceship.run(scaleDownBlueShipTo1)
+            default:
+                break
             }
         }
         
@@ -46,12 +48,14 @@ class SettingsScene: SKScene {
         greenspaceshipSetUp()
         backToMainMenuLabelSetUp()
     }
+    
     func backgroundSetUp() {
         background.size = self.frame.size
         background.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         background.zPosition = 0
         addChild(background)
     }
+    
     func settingsLabelSetUp() {
         settingsLabel.text = "Settings"
         settingsLabel.fontColor = SKColor.white
@@ -60,18 +64,21 @@ class SettingsScene: SKScene {
         settingsLabel.zPosition = 1
         addChild(settingsLabel)
     }
+    
     func bluspaceshipSetUp() {
         blueSpaceship.position = CGPoint(x: self.size.width * 0.3, y: self.frame.height * 0.55)
         blueSpaceship.zPosition = 1
         blueSpaceship.size = CGSize(width: 100, height: 100)
         addChild(blueSpaceship)
     }
+    
     func greenspaceshipSetUp() {
         greenSpaceship.position = CGPoint(x: self.size.width * 0.7, y: self.frame.height * 0.55)
         greenSpaceship.zPosition = 1
         greenSpaceship.size = CGSize(width: 100, height: 100)
         addChild(greenSpaceship)
     }
+    
     func backToMainMenuLabelSetUp() {
         backToMainMenuLabel.text = "Back To Menu"
         backToMainMenuLabel.fontColor = SKColor.white
@@ -80,6 +87,7 @@ class SettingsScene: SKScene {
         backToMainMenuLabel.zPosition = 1
         addChild(backToMainMenuLabel)
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: UITouch in touches {
             let pointOfTouch = touch.location(in: self)

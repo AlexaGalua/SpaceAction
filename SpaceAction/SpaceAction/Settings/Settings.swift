@@ -18,7 +18,6 @@ class Settings: Codable {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case playerName
         case spaceshipName
         case timer
     }
