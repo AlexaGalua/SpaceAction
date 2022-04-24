@@ -69,7 +69,7 @@ class MainMenuScene: SKScene {
         settingsLabel.zPosition = 1
         addChild(settingsLabel)
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: UITouch in touches {

@@ -28,8 +28,6 @@
 		0084EFE22806B2B2000E752B /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0084EFE12806B2B2000E752B /* UserDefaultsExtension.swift */; };
 		0084EFE42806B325000E752B /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0084EFE32806B325000E752B /* Stars.sks */; };
 		0084EFE62806B33A000E752B /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0084EFE52806B33A000E752B /* MainMenuScene.sks */; };
-		00980B522807FA160036AB21 /* Typometry_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00980B512807FA160036AB21 /* Typometry_Regular.ttf */; };
-		009C895A28071118007EF42E /* quadaptor.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0084EFE92806B3D5000E752B /* quadaptor.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,9 +53,6 @@
 		0084EFE12806B2B2000E752B /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		0084EFE32806B325000E752B /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
 		0084EFE52806B33A000E752B /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
-		0084EFE92806B3D5000E752B /* quadaptor.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quadaptor.ttf; sourceTree = "<group>"; };
-		00980B502807F9840036AB21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/abosanovaboldru.ttf; sourceTree = "<group>"; };
-		00980B512807FA160036AB21 /* Typometry_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Typometry_Regular.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 		0084EFB02806AF26000E752B /* SpaceAction */ = {
 			isa = PBXGroup;
 			children = (
-				00980B4C2807F9380036AB21 /* Fonts */,
 				0084EFE02806B27F000E752B /* Extension */,
 				0084EFD92806B1CE000E752B /* Settings */,
 				0084EFCC2806B061000E752B /* Records */,
@@ -138,16 +132,6 @@
 				0084EFE12806B2B2000E752B /* UserDefaultsExtension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		00980B4C2807F9380036AB21 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				0084EFE92806B3D5000E752B /* quadaptor.ttf */,
-				00980B4F2807F95A0036AB21 /* abosanovaboldru.ttf */,
-				00980B512807FA160036AB21 /* Typometry_Regular.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +198,8 @@
 				0084EFE42806B325000E752B /* Stars.sks in Resources */,
 				0084EFD82806B19A000E752B /* RecordTableViewCell.xib in Resources */,
 				0084EFBF2806AF28000E752B /* Assets.xcassets in Resources */,
-				009C895A28071118007EF42E /* quadaptor.ttf in Resources */,
 				0084EFC22806AF28000E752B /* LaunchScreen.storyboard in Resources */,
 				0084EFB62806AF26000E752B /* Actions.sks in Resources */,
-				00980B522807FA160036AB21 /* Typometry_Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,14 +243,6 @@
 				0084EFC12806AF28000E752B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		00980B4F2807F95A0036AB21 /* abosanovaboldru.ttf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00980B502807F9840036AB21 /* Base */,
-			);
-			name = abosanovaboldru.ttf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

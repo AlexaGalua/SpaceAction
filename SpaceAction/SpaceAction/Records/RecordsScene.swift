@@ -14,8 +14,6 @@ class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource
     
     var records = RecordsManager.shared.loadRecords()
     
-    
-    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         self.delegate = self
@@ -71,7 +69,7 @@ class GameRoomTableView: UITableView, UITableViewDelegate, UITableViewDataSource
 class RecordsScene: SKScene {
     
     var gameTableView = GameRoomTableView()
-    let gameTableViewSize = CGSize(width: 350, height: 400)
+    let gameTableViewSize = CGSize(width: 350, height: 300)
     let cell = UITableViewCell()
     let recordsLabel = SKLabelNode(fontNamed: "Verdana-Bold")
     let backToMainMenuLabel = SKLabelNode(fontNamed: "Verdana-Bold")

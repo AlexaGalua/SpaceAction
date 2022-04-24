@@ -13,9 +13,7 @@ enum SettingKeys: String {
 }
 
 class SettingsManager {
-    
     static let shared = SettingsManager()
-    
     private init() {}
 
     func saveSettings(_ settings: Settings) {
